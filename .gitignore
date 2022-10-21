@@ -3,3 +3,6 @@
 ################################################################################
 
 /TodoListGQL/obj
+/TodoListGQL/bin/Debug/net6.0
+/.vs
+/.editorconfig
