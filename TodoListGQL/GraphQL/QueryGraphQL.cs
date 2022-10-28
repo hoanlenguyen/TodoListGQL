@@ -1,13 +1,17 @@
-﻿using TodoListGQL.Data;
+﻿using GraphQL.Types;
+using Microsoft.EntityFrameworkCore;
+using TodoListGQL.Data;
 using TodoListGQL.Models;
 
 namespace TodoListGQL.GraphQL
 {
-    public class QueryGraphQL
+    public class QueryGraphQL : ObjectGraphType
     {
-        public IQueryable<ItemData> GetItem([Service] ApiDbContext context)
+         
+
+        public ItemData GetItem([Service] ApiDbContext context, int id)
         {
-            return context.Items;
+            return context.Items.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
     }
 }
